@@ -1,53 +1,69 @@
-You're right! I missed embedding the diagram link properly in the response. Here's the complete combined explanation along with the **diagram link** for download:
+**SnowPro Core Certification Exam**. 
 
 ---
 
-### Snowflake Architecture Overview  
-
-Snowflake is a data platform built on cloud-native principles, offering flexibility, scalability, and cost-efficiency. It is designed with three distinct layers:  
-
-1. **Data Storage Layer**  
-   - Stores structured and semi-structured data (e.g., JSON, Parquet, ORC) in a columnar format.  
-   - This layer uses cloud storage from providers like AWS S3, Azure Blob Storage, and Google Cloud Storage.  
-   - Data is automatically compressed, partitioned, and distributed for optimal performance.  
-
-2. **Compute Layer (Virtual Warehouses)**  
-   - This layer provides the computational muscle for executing queries, loading/unloading data, and other operations.  
-   - Compute resources are provisioned as Virtual Warehouses (VW), available in T-shirt sizes (X-small to 6X-large). Each size doubles the resources (CPU, RAM, and storage) of the previous one.  
-   - Features:  
-     - **Vertical Scaling**: Increase the size (e.g., Medium to Large) for handling heavier queries.  
-     - **Horizontal Scaling**: Add multiple warehouses for concurrency.  
-     - **Auto Suspend and Resume**: Warehouses pause automatically after inactivity, saving costs.  
-     - **Per-Second Billing**: Costs are based on usage duration and size.  
-
-3. **Cloud Services Layer**  
-   - Acts as the "brain" of Snowflake.  
-   - Handles metadata management, query optimization, authentication, and access control.  
-   - Includes features like:  
-     - **Metadata Cache**: Speeds up query compilation using pre-stored statistics.  
-     - **Result Cache**: Stores query results for up to 24 hours, reusing them for identical queries without additional compute cost.  
-
-### Key Features of Snowflake  
-- **Caching Mechanisms**:  
-   - **Result Cache**: Speeds up identical queries by avoiding recomputation.  
-   - **Warehouse Cache**: Reduces data retrieval costs by caching frequently accessed data within active warehouses.  
-   - **Metadata Cache**: Optimizes query execution by storing data statistics and table schemas.  
-
-- **Separation of Compute and Storage**:  
-   - Enables independent scaling, providing flexibility to adjust resources as needed.  
-
-- **Connection Methods**:  
-   - **Web UI (Snowflake Web Interface)**: User-friendly interface for running queries and managing resources.  
-   - **Snowsql (CLI)**: Command-line tool for interacting with Snowflake.  
-   - **ODBC/JDBC Connectors**: For integrating with applications and third-party tools.  
-   - **Native Connectors**: Python, Spark, and Snowpark for programmatic interactions.  
+### **Introduction to Snowflake and Exam Overview**
+- Introduction to Snowflake and its relevance for **SnowPro Core Certification**.
+- Overview of Snowflake’s **hybrid architecture** combining shared-disk and shared-nothing approaches.
 
 ---
 
-### Diagram of Snowflake Architecture  
-
-You can download the **Snowflake Architecture Diagram** [here](sandbox:/mnt/data/A_simplified_diagram_of_Snowflake's_architecture._.png).
+### **Snowflake Architecture Overview**
+1. **Three Main Layers**:
+   - **Data Storage Layer**:
+     - Data is stored in optimized, compressed formats in cloud object storage (AWS S3, Azure Blob, GCP storage).
+     - Separation of storage and compute, enabling independent scalability.
+   - **Compute Layer (Virtual Warehouses)**:
+     - Provides compute power for tasks like data loading, query execution, ML model training, etc.
+     - Offers T-shirt sizes (e.g., X-Small, Small, Medium, Large, 6X-Large).
+     - Supports **vertical scaling** (e.g., Medium → Large) and **horizontal scaling** (multi-cluster warehouses for concurrency).
+     - Key features: Auto-suspend, Auto-resume, and per-second billing after an initial 60-second charge.
+   - **Cloud Services Layer**:
+     - The "brain" of Snowflake.
+     - Handles metadata management, query optimization, security, and infrastructure management.
+     - Includes caching mechanisms like **metadata cache** (for query optimization) and **result cache** (for reusing query results within 24 hours).
 
 ---
 
-This explanation combines the detailed textual explanation with a downloadable graphic for better comprehension. Let me know if there’s anything else you’d like!
+### **Caching in Snowflake**
+- **Result Cache**:
+  - Stores query results for 24 hours.
+  - Avoids compute layer costs for identical queries within the caching window.
+- **Metadata Cache**:
+  - Stores data statistics for query optimization.
+- **Warehouse Cache**:
+  - Associated with active virtual warehouses but clears once the warehouse is suspended.
+
+---
+
+### **Virtual Warehouse Billing**
+- **Per-second billing**:
+  - Based on the size and runtime of the warehouse.
+  - Minimum charge of 60 seconds even for short-lived queries.
+- **Cost factors**:
+  - Number of virtual warehouses.
+  - Runtime duration.
+  - Warehouse size.
+
+---
+
+### **Connection Methods to Snowflake**
+1. **Web UI**:
+   - Default user interface for managing Snowflake resources.
+   - Includes **SnowSite** for advanced features like data visualization and monitoring.
+2. **Programmatic Interfaces**:
+   - **SnowSQL** (CLI for query execution and scripting).
+   - **ODBC/JDBC** (for integration with tools like Tableau, Power BI).
+   - **Native Connectors** for Python and Spark.
+3. **Third-party Tools**:
+   - Integration with platforms like Informatica, ThoughtSpot, and others.
+
+---
+
+### **Exam Preparation and Future Content**
+- Upcoming videos in the series will cover:
+  - Detailed architecture insights.
+  - Query optimization techniques.
+  - Hands-on guidance for the SnowPro Core Certification.
+
+---
